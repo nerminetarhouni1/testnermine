@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5'))
+    }
+    stages {
+        stage('Scan') {
+            steps {
+               withSonarQubeEnv('nermineQube') {
+                    sh 'mvn clean compile sonar:sonar -Dsonar.java.binaries=target/classes '
+                    
+                }
+            }
+        }
+    }
+}
