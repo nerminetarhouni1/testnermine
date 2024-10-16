@@ -16,6 +16,14 @@
     <properties>
         <java.version>17</java.version>
     </properties>
+    <distributionManagement>
+        <repository>
+              <id>deploymentRepo</id>
+              <name>Nexus Repository</name>
+              <url>http://localhost:8081/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
+
     <dependencies>
 
         <dependency>
