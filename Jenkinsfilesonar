@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5'))
+    }
+    stages {
+        stage('Scan') {
+            steps {
+               withSonarQubeEnv('sonarqube1') {
+                    sh 'mvn clean compile org.sonarsource.scanner.maven:sonar-maven-plugin:4.0.0.4121:sonar -Dsonar.java.binaries=target/classes' 
+                    
+                }
+            }
+        }
+    }
+}
