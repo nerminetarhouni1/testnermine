@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    environment {
+        DOCKER_IMAGE = 'nerminetarhouni/spring:latest' 
+    }
+    stages {
+       
+        stage('Build Application') {
+            steps {
+                // Use Maven to build the Spring Boot application
+                sh 'mvn clean package -DskipTests' 
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    // Build Docker image from the Dockerfile in the repository
+                    docker.build(DOCKER_IMAGE)
+                }
+            }
+        }
+      
+    }
+   
+}
