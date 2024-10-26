@@ -1,7 +1,8 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE = 'malekdocker98/spring:latest' // Replace with your Docker Hub username and repo name
+        DOCKER_IMAGE = 'malekdocker98/spring:latest' 
+     
     }
     stages {
        
@@ -23,9 +24,17 @@ pipeline {
         stage('push to dockerhub') {
             steps {
                 script {
+             withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
                     // Push the Docker image to Docker Hub
-                    sh "docker push ${DOCKER_IMAGE}"
-                }
+             sh """
+                        echo \$DOCKERHUB_PASSWORD | docker login -u \$DOCKERHUB_USERNAME --password-stdin
+                    """
+                    
+}
+sh "docker push ${DOCKER_IMAGE}"
+             
+
+}
             }
         }
       
