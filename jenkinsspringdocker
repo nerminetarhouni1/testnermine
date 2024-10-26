@@ -11,11 +11,11 @@ pipeline {
                 sh 'mvn clean package -DskipTests' 
             }
         }
-        stage('Build Docker Image') {
+        stage('push to dockerhub') {
             steps {
                 script {
-                    // Build Docker image from the Dockerfile in the repository
-                    docker.build(DOCKER_IMAGE)
+                    // Push the Docker image to Docker Hub
+                    docker.image(DOCKER_IMAGE).push()
                 }
             }
         }
