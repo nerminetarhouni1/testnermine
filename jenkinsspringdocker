@@ -11,6 +11,15 @@ pipeline {
                 sh 'mvn clean package -DskipTests' 
             }
         }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    // Build Docker image from the Dockerfile in the repository
+                    docker.build(DOCKER_IMAGE)
+                }
+            }
+        }
+
         stage('push to dockerhub') {
             steps {
                 script {
