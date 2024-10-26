@@ -19,7 +19,14 @@ pipeline {
                 }
             }
         }
-      
+       stage('push to dockerhub') {
+            steps {
+                script {
+                    // Push the Docker image to Docker Hub
+                    docker.image(DOCKER_IMAGE).push()
+                }
+            }
+        }
     }
    
 }
