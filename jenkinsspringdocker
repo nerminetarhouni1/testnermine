@@ -19,7 +19,7 @@ pipeline {
                 }
             }
         }
-         stage('push to dockerhub') {
+        /* stage('push to dockerhub') {
             steps {
                 script {
              withCredentials([usernamePassword(credentialsId: 'spring-dockerhub', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
@@ -34,7 +34,7 @@ pipeline {
 
 }
             }
-        }
+        }*/
     }
    
 }
