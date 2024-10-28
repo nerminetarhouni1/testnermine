@@ -33,7 +33,7 @@ pipeline {
 }
 
 sh "docker push ${DOCKER_IMAGE}"
-sh "docker rm -f $(docker ps -aq --filter 'ancestor=malekdocker98/spring') && docker rmi malekdocker98/spring"
+sh "docker rm -f \$(docker ps -aq --filter 'ancestor=malekdocker98/spring') && docker rmi malekdocker98/spring"
 sh"pwd"             
 
 }
