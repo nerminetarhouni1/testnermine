@@ -32,8 +32,18 @@ pipeline {
                     
 }
 
-sh "docker push ${DOCKER_IMAGE}"
-sh "docker rm -f \$(docker ps -aq --filter 'ancestor=malekdocker98/spring') && docker rmi malekdocker98/spring"
+ sh "docker push ${DOCKER_IMAGE}"
+ def containerIds = sh(script: 'docker ps -aq --filter "ancestor=malekdocker98/spring"', returnStdout: true).trim()
+
+                // Check if container IDs are not empty before attempting to remove
+                if (containerIds) {
+                    sh "docker rm -f ${containerIds}"
+                } else {
+                    echo 'No containers to remove.'
+                }
+
+                // Remove the associated image
+                sh 'docker rmi malekdocker98/spring'
 sh"pwd"             
 
 }
