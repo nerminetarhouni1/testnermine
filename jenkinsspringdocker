@@ -21,7 +21,7 @@ pipeline {
             }
         }
 
-   /*     stage('push to dockerhub') {
+       stage('push to dockerhub') {
             steps {
                 script {
              withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
@@ -31,12 +31,14 @@ pipeline {
                     """
                     
 }
+
 sh "docker push ${DOCKER_IMAGE}"
+sh "docker rm -f $(docker ps -aq --filter "ancestor=malekdocker98/spring") && docker rmi malekdocker98/spring"
              
 
 }
             }
-        }*/
+        }
       
     }
    
