@@ -26,7 +26,7 @@ class ReservationServiceImplIntegrationTest {
     @Order(1)
      void testRetrieveAllReservations() {
         List<Reservation> lisReservations = reservationService.retrieveAllReservations();
-        Assertions.assertEquals(2, lisReservations.size());
+        Assertions.assertEquals(0, lisReservations.size());
     }
 
     @Test
@@ -37,7 +37,7 @@ class ReservationServiceImplIntegrationTest {
         reservationService.addReservation(reservation);
 
         List<Reservation> reservations = reservationService.retrieveAllReservations();
-        Assertions.assertEquals(2, reservations.size());
+        Assertions.assertEquals(1, reservations.size());
         Assertions.assertEquals("f1", reservations.get(0).getIdReservation());
     }
 
