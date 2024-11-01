@@ -8,6 +8,7 @@ package tn.esprit.tpfoyer.service.controller;
         import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
         import org.springframework.boot.test.context.SpringBootTest;
         import org.springframework.http.MediaType;
+        import org.springframework.test.annotation.Rollback;
         import org.springframework.test.web.servlet.MockMvc;
         import tn.esprit.tpfoyer.entity.Reservation;
         import tn.esprit.tpfoyer.repository.ReservationRepository;
@@ -33,6 +34,7 @@ class ReservationControllerIntegrationTest {
     }
 
     @Test
+    @Rollback
     void testGetReservations() throws Exception {
         // Set up test data
         reservationRepository.save(new Reservation("f1", new Date(), true, null));
@@ -46,6 +48,7 @@ class ReservationControllerIntegrationTest {
     }
 
     @Test
+    @Rollback
     void testAddReservation() throws Exception {
         Reservation reservation = new Reservation("f1", new Date(), true, null);
 

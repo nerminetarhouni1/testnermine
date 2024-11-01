@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 import tn.esprit.tpfoyer.entity.Reservation;
 import tn.esprit.tpfoyer.repository.ReservationRepository;
 
@@ -34,6 +35,7 @@ class ReservationRepositoryIntegrationTest {
     }
 
     @Test
+    @Rollback
     void testFindById() {
         // Given
         Reservation reservation = new Reservation("f1", new Date(), true, null);
@@ -48,6 +50,7 @@ class ReservationRepositoryIntegrationTest {
     }
 
     @Test
+    @Rollback
     void testDeleteReservation() {
         // Given
         Reservation reservation = new Reservation("f1", new Date(), true, null);
