@@ -26,7 +26,7 @@ class ReservationServiceImplIntegrationTest {
     @Order(1)
      void testRetrieveAllReservations() {
         List<Reservation> lisReservations = reservationService.retrieveAllReservations();
-        //Assertions.assertEquals(1,lisReservations.size());
+        //Assertions.assertEquals(1, lisReservations.size());
     }
 
     @Test
