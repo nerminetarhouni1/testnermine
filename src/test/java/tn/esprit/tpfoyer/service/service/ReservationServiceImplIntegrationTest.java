@@ -14,6 +14,8 @@ import tn.esprit.tpfoyer.service.IReservationService;
 import java.util.Date;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)
 class ReservationServiceImplIntegrationTest {
@@ -26,7 +28,7 @@ class ReservationServiceImplIntegrationTest {
     @Order(1)
      void testRetrieveAllReservations() {
         List<Reservation> lisReservations = reservationService.retrieveAllReservations();
-        //Assertions.assertEquals(1, lisReservations.size());
+        assertNotNull(lisReservations);
     }
 
     @Test
@@ -37,7 +39,7 @@ class ReservationServiceImplIntegrationTest {
         reservationService.addReservation(reservation);
 
         List<Reservation> reservations = reservationService.retrieveAllReservations();
-        //Assertions.assertEquals(1, reservations.size());
+        assertNotNull(reservations);
         Assertions.assertEquals("f1", reservations.get(0).getIdReservation());
     }
 
