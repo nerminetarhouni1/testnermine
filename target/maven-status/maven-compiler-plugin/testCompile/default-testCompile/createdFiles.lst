@@ -1,0 +1,7 @@
+tn\esprit\tpfoyer\service\repository\ReservationRepositoryIntegrationTest.class
+tn\esprit\tpfoyer\service\controller\ReservationControllerUnitTest.class
+tn\esprit\tpfoyer\service\service\ReservationServiceImplUnitTest.class
+tn\esprit\tpfoyer\service\repository\ReservationRepositoryUnitTest.class
+tn\esprit\tpfoyer\service\service\ReservationServiceImplIntegrationTest.class
+tn\esprit\tpfoyer\service\controller\ReservationControllerIntegrationTest.class
+tn\esprit\tpfoyer\service\service\ReservationServiceImplUnitTest$1.class
