@@ -1,0 +1,32 @@
+pipeline {
+  agent any
+  stages {
+
+    stage('Git') {
+       steps {
+        echo 'Pulling...' 
+        git branch: 'KhaledZemzari',
+        url : 'https://github.com/zemz-dot/tp-foyer.git'
+      }
+    }
+      
+    stage('MVN Clean') {
+       steps {
+        sh "mvn clean"      
+      }
+    }
+
+      stage('MVN Compile') {
+       steps {
+        sh "mvn compile"      
+      }
+    }
+    
+    stage('MVN Package') {
+      steps {
+        sh "mvn package"      
+      }
+    }
+
+}
+}
