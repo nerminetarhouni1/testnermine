@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: tn.esprit.tpfoyer.service.repository.ReservationRepositoryIntegrationTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.784 s - in tn.esprit.tpfoyer.service.repository.ReservationRepositoryIntegrationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.671 s - in tn.esprit.tpfoyer.service.repository.ReservationRepositoryIntegrationTest

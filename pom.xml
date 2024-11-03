@@ -89,7 +89,7 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
             <version>6.1.13</version>
-            <scope>test</scope>
+            <!-- Removed <scope>test</scope> to ensure it's included at runtime -->
         </dependency>
     </dependencies>
 
