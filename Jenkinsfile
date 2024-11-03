@@ -15,5 +15,11 @@ pipeline {
                 echo 'CLEANING PACKAGES ----------> Done'
             }
         }
+        stage('Building Docker') {
+            steps {
+                sh 'mvn clean package'
+                echo 'CLEANING PACKAGES ----------> Done'
+            }
+        }              
     }
 }
