@@ -16,6 +16,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: nadamejri/foyer:latest
     container_name: foyer
     ports:
       - "8081:8089"
