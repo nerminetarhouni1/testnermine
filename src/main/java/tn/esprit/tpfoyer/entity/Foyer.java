@@ -32,7 +32,7 @@ public class Foyer {
             @JsonIgnore
             @ToString.Exclude
     Set<Bloc> blocs;
-
+//SSSS
 }
 
 
