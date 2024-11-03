@@ -29,7 +29,12 @@ public class Etudiant {
 
     @ManyToMany(mappedBy = "etudiants")
     Set<Reservation> reservations;
-
+public Etudiant(String nomEtudiant, String prenomEtudiant, long cinEtudiant, Date dateNaissance) {
+    this.nomEtudiant = nomEtudiant;
+    this.prenomEtudiant = prenomEtudiant;
+    this.cinEtudiant = cinEtudiant;
+    this.dateNaissance = dateNaissance;
+}
 }
 
 
