@@ -23,7 +23,11 @@ public class Universite {
 
     @OneToOne(cascade = CascadeType.ALL)
     Foyer foyer;
-
+public Universite(String nomUniversite, String adresse) {
+        this.nomUniversite = nomUniversite;
+        this.adresse = adresse;
+        
+    }
 }
 
 
