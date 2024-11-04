@@ -27,14 +27,12 @@ pipeline {
         sh "mvn package"      
       }
     }
-	stage('Sonarqube Analysis') {
-         steps {
-         withSonarQubeEnv('Sonarqube1') {
-         sh "mvn sonar:sonar \
-         -Dsonar.projectKey=tpfoyer \
-         -Dsonar.host.url=http://192.168.50.50:9000"
-}
-}
+	stage('SonarQube Analysis') {
+    def mvn = tool 'Default Maven';
+    withSonarQubeEnv() {
+      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=tpfoyer -Dsonar.projectName='tpfoyer'"
+    }
+  }
 }
 
 }
