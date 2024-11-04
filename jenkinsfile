@@ -6,7 +6,7 @@ pipeline {
        steps {
         echo 'Pulling...' 
         git branch: 'omran-khd',
-        url : 'https://github.com/nerminetarhouni1/tpGit.git'
+        url : 'https://github.com/OmranKhad/Devops-test.git'
       }
     }
       
