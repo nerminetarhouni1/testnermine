@@ -27,6 +27,15 @@ pipeline {
         sh "mvn package"      
       }
     }
+	stage('Sonarqube Analysis') {
+         steps {
+         withSonarQubeEnv('Sonarqube1') {
+         sh "mvn sonar:sonar \
+         -Dsonar.projectKey=tpfoyer \
+         -Dsonar.host.url=http://192.168.50.50:9000"
+}
+}
+}
 
 }
 }
