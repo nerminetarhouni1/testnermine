@@ -13,6 +13,13 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableAspectJAutoProxy
 public class TpFoyerApplication {
 
+
+ @GetMapping("/")
+    public String getmessage()
+    {
+        return "good job nermine your java app is deployed with docker successfully ";
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(TpFoyerApplication.class, args);
     }
