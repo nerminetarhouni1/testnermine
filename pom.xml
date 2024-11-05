@@ -93,6 +93,16 @@
         </dependency>
     </dependencies>
 
+    <!-- Distribution Management for Nexus deployment -->
+    <distributionManagement>
+        <repository>
+            <id>deploymentRepo</id>
+            <name>Nexus Repository</name>
+            <url>http://localhost:8082/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
+
+
     <build>
         <plugins>
             <plugin>
@@ -126,6 +136,16 @@
                         <include>**/*IT.java</include>
                         <include>**/*IntegrationTest.java</include>
                     </includes>
+                </configuration>
+            </plugin>
+            <!-- Maven Deploy Plugin for deploying to Nexus -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <repositoryId>deploymentRepo</repositoryId>
+                    <url>http://localhost:8082/repository/maven-releases/</url>
                 </configuration>
             </plugin>
         </plugins>
