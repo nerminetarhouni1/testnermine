@@ -34,8 +34,7 @@ pipeline {
          -Dsonar.projectKey=tpfoyer \
 	 -Dsonar.projectKey=tpfoyer \
          -Dsonar.host.url=http://192.168.50.50:9000 \
-	 -Dsonar.token=sqp_fdd9a240fde2f8351e685a39b93fcf8c3de9061c"
-
+	 -Dsonar.token=$sonartoken"
 
 }
 }
