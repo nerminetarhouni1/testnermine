@@ -36,4 +36,5 @@ networks:
     driver: bridge
 
 volumes:
-  tpgit_mysql-data: # Define the volume for MySQL persistence
+  tpgit_mysql-data:   # Declare the named volume here
+    driver: local      # You can explicitly define the driver (optional)
