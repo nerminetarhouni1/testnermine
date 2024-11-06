@@ -9,6 +9,8 @@ services:
       MYSQL_DATABASE: db
     ports:
       - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql # This line adds a persistent volume
     networks:
       - app-network
 
@@ -32,3 +34,6 @@ services:
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  mysql-data: # Define the volume for MySQL persistence
