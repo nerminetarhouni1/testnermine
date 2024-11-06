@@ -15,11 +15,17 @@ pipeline {
                 echo 'CLEANING PACKAGES -----------------------------------------------------------------------------------------> Done'
             }
         }
+        stage('Docker Dozn') {
+            steps {
+                sh 'docker-compose down'
+                echo 'Docker Down ------------------------------------------------------------------------------------------> Done'
+            }
+        }
         stage('Building Docker') {
             steps {
-                sh 'docker-compose up --build -d'
+                sh 'docker-compose up --build -d' 
                 echo 'Building Docker ------------------------------------------------------------------------------------------> Done'
             }
-        }              
+       }                
     }
 }
