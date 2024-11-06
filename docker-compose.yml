@@ -10,7 +10,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - mysql-data:/var/lib/mysql # This line adds a persistent volume
+      - tpgit_mysql-data:/var/lib/mysql # This line adds a persistent volume
     networks:
       - app-network
 
@@ -36,4 +36,4 @@ networks:
     driver: bridge
 
 volumes:
-  mysql-data: # Define the volume for MySQL persistence
+  tpgit_mysql-data: # Define the volume for MySQL persistence
