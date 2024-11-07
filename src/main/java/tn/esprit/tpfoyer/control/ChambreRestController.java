@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@Slf4j // Lombok annotation to enable logging
+@Slf4j // Enables SLF4J logging
 @RequestMapping("/chambre")
 public class ChambreRestController {
 

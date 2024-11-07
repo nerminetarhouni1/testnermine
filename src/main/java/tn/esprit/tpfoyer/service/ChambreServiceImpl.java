@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-@Slf4j
+@Slf4j // Enables SLF4J logging
 public class ChambreServiceImpl implements IChambreService {
 
     private final ChambreRepository chambreRepository;
