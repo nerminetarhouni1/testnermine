@@ -132,7 +132,7 @@
                 {
                   "id": "55a0bfd0-fda0-422a-a5e4-f46aad1f3dea",
                   "title": "sslstrip threat",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "Medium",
                   "type": "Tampering",
                   "description": "https can be downgrrade to http ",
