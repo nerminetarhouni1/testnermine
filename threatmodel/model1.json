@@ -89,7 +89,7 @@
                 {
                   "id": "be54f0c7-fcbb-49c5-82a2-e59548fa1445",
                   "title": " threat1of webapplication",
-                  "status": "Open",
+                  "status": "mitigated",
                   "severity": "High",
                   "type": "Spoofing",
                   "description": " this threat is spoofing",
