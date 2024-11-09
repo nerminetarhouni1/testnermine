@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: validate-threat-mitigation
+        name: Validate Threat Mitigation
+        entry: python validate_threat_mitigation.py
+        language: python
+        stages: [pre-commit]
