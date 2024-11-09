@@ -3,19 +3,19 @@ version: '3.8'
 services:
   mysql:
     image: mysql:latest
-    container_name: mysql_container
+    container_name: mysql_tpGit
     environment:
       MYSQL_ROOT_PASSWORD: root  # Replace with your root password
       MYSQL_DATABASE: tpGit                    # Your database name
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     restart: always
 
   tp:
     build: .
-    container_name: tp
+    container_name: tpGitt
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/tpGit?createDatabaseIfNotExist=true
       SPRING_DATASOURCE_USERNAME: root
