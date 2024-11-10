@@ -34,5 +34,3 @@ public class Foyer {
     Set<Bloc> blocs;
 
 }
-
-

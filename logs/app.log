@@ -214,7 +214,7 @@ Caused by: java.net.ConnectException: Connection refused
 	... 113 more
 2024-11-03 19:43:25 ERROR LocalContainerEntityManagerFactoryBean:426 - Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
 2024-11-03 19:43:25 WARN  GenericWebApplicationContext:633 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
-2024-11-03 19:43:25 INFO  ConditionEvaluationReportLogger:82 - 
+2024-11-03 19:43:25 INFO  ConditionEvaluationReportLogger:82 -
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2024-11-03 19:43:26 ERROR SpringApplication:859 - Application run failed

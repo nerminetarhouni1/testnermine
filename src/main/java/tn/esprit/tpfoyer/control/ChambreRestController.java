@@ -73,4 +73,3 @@ public class ChambreRestController {
         return chambres;
     }
 }
-

@@ -108,4 +108,3 @@ class ChambreServiceImplTest {
         verify(chambreRepository).findAllByTypeC(type);
     }
 }
-

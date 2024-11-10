@@ -25,5 +25,3 @@ public class Universite {
     Foyer foyer;
 
 }
-
-

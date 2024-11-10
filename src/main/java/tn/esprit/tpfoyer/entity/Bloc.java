@@ -34,4 +34,3 @@ public class Bloc {
     Set<Chambre> chambres = new HashSet<Chambre>();
 
 }
-

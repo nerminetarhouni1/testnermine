@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/etudiant")
-@CrossOrigin(origins = "*") 
+@CrossOrigin(origins = "*")
 public class EtudiantRestController {
 
     IEtudiantService etudiantService;
