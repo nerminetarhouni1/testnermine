@@ -22,10 +22,10 @@ pipeline {
       }
     }
     stage('Tests') {
-                    steps {
-                        sh 'mvn test'
-                    }
-                }
+        steps {
+         sh 'mvn test'
+      }
+    }
     
     stage('MVN Package') {
       steps {
