@@ -1,0 +1,24 @@
+Feature: Scan Docker containers for open ports
+  Background:
+    Given "nmap" is installed
+
+  Scenario: Ensure MySQL ports are secure
+    When I launch an "nmap" attack with:
+      """
+      nmap -p 3306,3307 192.168.33.10
+      """
+    Then the output should not contain:
+      """
+      3306/tcp open
+      3307/tcp open
+      """
+
+  Scenario: Ensure SonarQube ports are secure
+    When I launch an "nmap" attack with:
+      """
+      nmap -p 9000 192.168.33.10
+      """
+    Then the output should not contain:
+      """
+      9000/tcp open
+      """
