@@ -66,7 +66,12 @@
              <version>5.14.2</version>
              <scope>test</scope>
          </dependency>
-
+         <dependency>
+             <groupId>com.h3xstream.findsecbugs</groupId>
+             <artifactId>findsecbugs-plugin</artifactId>
+             <version>1.10.1</version>
+             <scope>compile</scope>
+         </dependency>
     </dependencies>
 
 
@@ -97,6 +102,30 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.5.3.0</version>
+                   <executions>
+            <execution>
+           <goals>
+             <goal>check</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+        <plugin>
+            <groupId>com.h3xstream.findsecbugs</groupId>
+            <artifactId>findsecbugs-plugin</artifactId>
+            <version>1.10.1</version>
+            <executions>
+                <execution>
+                    <goals>
+                    <goal>check</goal> <!-- Runs FindSecBugs security checks -->
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
         </plugins>
              <finalName>spring-boot-docker</finalName>
     </build>
