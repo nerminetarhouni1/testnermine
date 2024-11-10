@@ -23,7 +23,7 @@ services:
     ports:
       - "8081:8089"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/db
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-container:3306/db
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
     depends_on:
