@@ -1,8 +1,8 @@
 pipeline {
   agent any
-  def app
-  stages {
 
+  stages {
+  def app
     stage('Git') {
        steps {
         echo 'Pulling...' 
