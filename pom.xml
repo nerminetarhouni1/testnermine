@@ -50,6 +50,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui -->
@@ -73,7 +74,12 @@
              <scope>test</scope>
          </dependency>
 
-
+<dependency>
+  <groupId>com.h3xstream.findsecbugs</groupId>
+  <artifactId>findsecbugs-plugin</artifactId>
+  <version>1.10.1</version>
+  <scope>compile</scope>
+</dependency>
     </dependencies>
 
     <build>
@@ -90,6 +96,32 @@
                     </excludes>
                 </configuration>
             </plugin>
+             <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>spotbugs-maven-plugin</artifactId>
+            <version>4.2.3</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>check</goal> <!-- Runs SpotBugs analysis -->
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+        <!-- FindSecBugs plugin for security-specific analysis -->
+        <plugin>
+            <groupId>com.h3xstream.findsecbugs</groupId>
+            <artifactId>findsecbugs-plugin</artifactId>
+            <version>1.10.1</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>check</goal> <!-- Runs FindSecBugs security checks -->
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
         </plugins>
         <finalName>spring-boot-docker</finalName>
     </build>
