@@ -1,8 +1,7 @@
 pipeline {
   agent any
-
   stages {
-  def app
+
     stage('Git') {
        steps {
         echo 'Pulling...' 
@@ -53,7 +52,11 @@ pipeline {
         }
 
  stage('Docker Image'){
-           app = docker.build("omrankhd/tp-foyer")
+            steps{
+                script{
+                    sh 'docker build -t omrankhd/tp-foyer .'
+                }
+            }
         }
 
 
