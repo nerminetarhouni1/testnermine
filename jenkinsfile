@@ -52,11 +52,7 @@ pipeline {
         }
 
  stage('Docker Image'){
-            steps{
-                script{
-                    sh 'sudo docker build -t omrankhd/tp-foyer .'
-                }
-            }
+           app = docker.build("omrankhd/tp-foyer")
         }
 
 
