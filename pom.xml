@@ -88,6 +88,12 @@
             </configuration>
         </plugin>
 
+	<plugin>
+	    <groupId>org.sonarsource.scanner.maven</groupId>
+	    <artifactId>sonar-maven-plugin</artifactId>
+	    <version>3.9.0.918</version> <!-- Example version -->
+	</plugin>
+
         <!-- Checkstyle for code style enforcement -->
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -127,7 +133,7 @@
                 </formats>
             </configuration>
         </plugin>
-
+       
         </plugins>
 
     </build>
