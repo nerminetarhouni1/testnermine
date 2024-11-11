@@ -7,7 +7,6 @@ repos:
       - id: check-yaml
       - id: check-added-large-files
       - id: check-merge-conflict
-      # Secret detection hooks without AWS check
       - id: detect-private-key
 
   - repo: https://github.com/Yelp/detect-secrets
