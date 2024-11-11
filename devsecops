@@ -1,21 +1,18 @@
 pipeline {
     agent any
-      environment {
-        DOCKER_IMAGE = 'nerminetarhouni/spring:latest' 
+       environment {
+        DOCKER_IMAGE = 'malekdocker98/spring:latest' 
+     
     }
       options {
           buildDiscarder(logRotator(numToKeepStr: '5'))
     }
 
     stages {
-       stage('Checkout') {
-            steps {
-                git branch: 'master-nermine', url:'https://github.com/nerminetarhouni1/tpGit.git'
-            }
-        }
+     
         stage('Scan') {
             steps {
-               withSonarQubeEnv('nermineQube') {
+               withSonarQubeEnv('sonarqube1') {
                     sh 'mvn clean compile sonar:sonar -Dsonar.java.binaries=target/classes '
                     
                 }
@@ -41,18 +38,19 @@ pipeline {
                 }
             }
         }
-         stage('push to dockerhub') {
+          stage('push to dockerhub') {
             steps {
-                script {
-             withCredentials([usernamePassword(credentialsId: 'spring-dockerhub', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
+               script {
+            withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
                     // Push the Docker image to Docker Hub
              sh """
                         echo \$DOCKERHUB_PASSWORD | docker login -u \$DOCKERHUB_USERNAME --password-stdin
                     """
                     
 }
-            sh "docker push ${DOCKER_IMAGE}"
-      def containerIds = sh(script: 'docker ps -aq --filter "ancestor=nerminetarhouni/spring"', returnStdout: true).trim()
+
+// sh "docker push ${DOCKER_IMAGE}"
+ def containerIds = sh(script: 'docker ps -aq --filter "ancestor=malekdocker98/spring"', returnStdout: true).trim()
 
                 // Check if container IDs are not empty before attempting to remove
                 if (containerIds) {
@@ -62,10 +60,13 @@ pipeline {
                 }
 
                 // Remove the associated image
-                sh 'docker rmi nerminetarhouni/spring'       
+                sh 'docker rmi malekdocker98/spring'
+sh"pwd"             
 
 }
+
             }
         }
+
     }
 }
