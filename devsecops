@@ -21,7 +21,13 @@ pipeline {
                 }
             }
         }
-         stage('Test') {
+         stage('Build Application') {
+            steps {
+                // Use Maven to build the Spring Boot application
+                sh 'mvn clean package' 
+            }
+        }
+ stage('Test') {
             steps {
                 // Run JUnit tests
                 sh 'mvn test'
