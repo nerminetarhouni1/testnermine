@@ -1,7 +1,7 @@
 pipeline {
     agent any
       environment {
-        DOCKER_IMAGE = 'nerminetarhouni/spring:latest' 
+        DOCKER_IMAGE = 'nerminetarhouni/springg:latest' 
     }
       options {
           buildDiscarder(logRotator(numToKeepStr: '5'))
@@ -58,7 +58,7 @@ pipeline {
                     
 }
             sh "docker push ${DOCKER_IMAGE}"
-      def containerIds = sh(script: 'docker ps -aq --filter "ancestor=nerminetarhouni/spring"', returnStdout: true).trim()
+      def containerIds = sh(script: 'docker ps -aq --filter "ancestor=nerminetarhouni/springg"', returnStdout: true).trim()
 
                 // Check if container IDs are not empty before attempting to remove
                 if (containerIds) {
@@ -68,7 +68,7 @@ pipeline {
                 }
 
                 // Remove the associated image
-                sh 'docker rmi nerminetarhouni/spring'       
+                sh 'docker rmi nerminetarhouni/springg'       
 
 }
             }
