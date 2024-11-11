@@ -7,12 +7,12 @@ import java.util.List;
 
 public interface IReservationService {
 
-    public List<Reservation> retrieveAllReservations();
-    public Reservation retrieveReservation(String reservationId);
-    public Reservation addReservation(Reservation r);
-    public void removeReservation(String reservationId);
-    public Reservation modifyReservation(Reservation reservation);
+    List<Reservation> retrieveAllReservations();
+    Reservation retrieveReservation(String reservationId);
+    Reservation addReservation(Reservation r);
+    void removeReservation(String reservationId);
+    Reservation modifyReservation(Reservation reservation);
 
     // Here we will add later methods calling keywords and methods calling JPQL
-    public List<Reservation> trouverResSelonDateEtStatus(Date d, boolean b);
+    List<Reservation> trouverResSelonDateEtStatus(Date d, boolean b);
 }
