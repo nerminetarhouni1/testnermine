@@ -54,7 +54,7 @@ pipeline {
  stage('Docker Image'){
             steps{
                 script{
-                    sh 'docker build -t omrankhd/tp-foyer .'
+                    sh 'sudo docker build -t omrankhd/tp-foyer .'
                 }
             }
         }
