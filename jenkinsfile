@@ -21,18 +21,12 @@ pipeline {
         sh "mvn compile"      
       }
     }
-    stage('Tests') {
-        steps {
-         sh 'mvn test'
-      }
-    }
     
     stage('MVN Package') {
       steps {
         sh "mvn package"      
       }
     }
-
 	stage('Sonarqube Analysis') {
          steps {
          
@@ -51,13 +45,7 @@ pipeline {
          }
         }
 
- stage('Docker Image'){
-            steps{
-                script{
-                    sh 'sudo docker build -t omrankhd/tp-foyer .'
-                }
-            }
-        }
+
 
 
 }
