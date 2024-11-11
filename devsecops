@@ -1,0 +1,71 @@
+pipeline {
+    agent any
+      environment {
+        DOCKER_IMAGE = 'nerminetarhouni/spring:latest' 
+    }
+      options {
+          buildDiscarder(logRotator(numToKeepStr: '5'))
+    }
+
+    stages {
+       stage('Checkout') {
+            steps {
+                git branch: 'master-nermine', url:'https://github.com/nerminetarhouni1/tpGit.git'
+            }
+        }
+        stage('Scan') {
+            steps {
+               withSonarQubeEnv('nermineQube') {
+                    sh 'mvn clean compile sonar:sonar -Dsonar.java.binaries=target/classes '
+                    
+                }
+            }
+        }
+         stage('Test') {
+            steps {
+                // Run JUnit tests
+                sh 'mvn test'
+            }
+            post {
+                always {
+                    // Archive test results
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    // Build Docker image from the Dockerfile in the repository
+                    docker.build(DOCKER_IMAGE)
+                }
+            }
+        }
+         stage('push to dockerhub') {
+            steps {
+                script {
+             withCredentials([usernamePassword(credentialsId: 'spring-dockerhub', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
+                    // Push the Docker image to Docker Hub
+             sh """
+                        echo \$DOCKERHUB_PASSWORD | docker login -u \$DOCKERHUB_USERNAME --password-stdin
+                    """
+                    
+}
+            sh "docker push ${DOCKER_IMAGE}"
+      def containerIds = sh(script: 'docker ps -aq --filter "ancestor=nerminetarhouni/spring"', returnStdout: true).trim()
+
+                // Check if container IDs are not empty before attempting to remove
+                if (containerIds) {
+                    sh "docker rm -f ${containerIds}"
+                } else {
+                    echo 'No containers to remove.'
+                }
+
+                // Remove the associated image
+                sh 'docker rmi nerminetarhouni/spring'       
+
+}
+            }
+        }
+    }
+}
