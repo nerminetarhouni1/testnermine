@@ -21,15 +21,21 @@ pipeline {
         sh "mvn compile"      
       }
     }
-    
-    stage('MVN Package') {
-      steps {
-        sh "mvn package"      
+    stage('Tests') {
+        steps {
+         sh 'mvn test'
       }
     }
+
+    stage('MVN Package') {
+      steps {
+        sh "mvn package"
+      }
+    }
+
 	stage('Sonarqube Analysis') {
          steps {
-         
+
          sh "mvn sonar:sonar \
          -Dsonar.projectKey=tpfoyer \
 	 -Dsonar.projectKey=tpfoyer \
@@ -40,12 +46,18 @@ pipeline {
 }
 }
 	stage('Nexus') {
-         steps {   
-		sh "mvn deploy"   
+         steps {
+		sh "mvn deploy"
          }
         }
 
-
+ stage('Docker Image'){
+            steps{
+                script{
+                    sh 'sudo docker build -t omrankhd/tp-foyer .'
+                }
+            }
+        }
 
 
 }
