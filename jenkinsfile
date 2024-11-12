@@ -72,8 +72,10 @@ pipeline {
 
  stage('deploy extern') {
             steps {
-                sh"ngrok config add-authtoken 2nltAlL6VsDfBOgbyD7MzrEC18Y_4ofFJUUvnL7BBWymBNMbH"
+             withCredentials([string(credentialsId: 'ngrok_creds', variable: 'Secret')]) {
+                sh"ngrok config add-authtoken ${Secret}"
                 sh "ngrok http http://192.168.50.50:8089"
+            }
             }
         }
 
