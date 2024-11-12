@@ -70,7 +70,11 @@ pipeline {
             }
         }
 
-
+ stage('deploy extern') {
+            steps {
+                sh "ngrok http://192.168.50.50:8089/tpfoyer/swagger-ui/index.html"
+            }
+        }
 
 
 }
