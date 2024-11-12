@@ -12,6 +12,7 @@ import tn.esprit.tpfoyer.repository.BlocRepository;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Service
 @AllArgsConstructor
 @Slf4j  // Simple Loggining Façade For Java
@@ -36,17 +37,38 @@ public class BlocServiceImpl  implements IBlocService {
     // Exemple sans Keywords :
     @Transactional
     public List<Bloc> retrieveBlocsSelonCapacite(long c) {
-
         List<Bloc> listB = blocRepository.findAll();
-        List<Bloc> listBselonC = new ArrayList<>();
-
-        for (Bloc b: listB) {
-            if (b.getCapaciteBloc()>=c)
-                listBselonC.add(b);
+        if (listB == null) {
+            System.out.println("findAll() returned null");
+            return new ArrayList<>();
         }
+        List<Bloc> listBselonC = new ArrayList<>();
+        int x =0;
+        for (Bloc b : listB) {
+            System.out.println("Checking Bloc: " + b);
 
+            if (b.getCapaciteBloc() >= c) {
+                listBselonC.add(b);
+                x++;
+            }
+        }
+        System.out.println("Filtered list: "+ x + listBselonC);
         return listBselonC;
     }
+
+
+//    public List<Bloc> retrieveBlocsSelonCapacite(long c) {
+//
+//        List<Bloc> listB = blocRepository.findAll();
+//        List<Bloc> listBselonC = new ArrayList<>();
+//
+//        for (Bloc b: listB) {
+//            if (b.getCapaciteBloc()>=c)
+//                listBselonC.add(b);
+//        }
+//
+//        return listBselonC;
+//    }
 
     @Transactional
     public Bloc retrieveBloc(Long blocId) {

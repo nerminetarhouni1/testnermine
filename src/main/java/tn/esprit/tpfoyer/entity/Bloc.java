@@ -35,5 +35,7 @@ public class Bloc {
 
     public Bloc(String nomBloc, long idBloc) {
     }
+    public Bloc(String nomBloc, long idBloc,long capacite) {
+    }
 }
 
