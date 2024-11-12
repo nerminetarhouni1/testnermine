@@ -86,4 +86,33 @@ public class BlockServiceTest {
         List<Bloc> result = blocService.retrieveBlocsSelonCapacite(7);
         Assertions.assertEquals(2, result.size());
     }
+    @Test
+    public void testTrouverBlocsParNomEtCap() {
+        // Given: Create some Bloc objects with different names and capacities
+        Bloc bloc1 = new Bloc();
+        bloc1.setNomBloc("BlocA");
+        bloc1.setCapaciteBloc(15);
+
+        Bloc bloc2 = new Bloc();
+        bloc2.setNomBloc("BlocA");
+        bloc2.setCapaciteBloc(10);
+
+        Bloc bloc3 = new Bloc();
+        bloc3.setNomBloc("BlocB");
+        bloc3.setCapaciteBloc(15);
+
+
+        List<Bloc> filteredBlocs = Arrays.asList(bloc1, bloc2);
+        //List<Bloc> filteredBlocs = blocService.trouverBlocsParNomEtCap("BlocA", 10);
+        System.out.println(filteredBlocs.toString());
+        Mockito.when(blocRepository.findAllByNomBlocAndCapaciteBloc("BlocA", 10)).thenReturn(filteredBlocs);
+
+        List<Bloc> result = blocService.trouverBlocsParNomEtCap("BlocA", 10);
+        System.out.println(result.toString());
+        Assertions.assertEquals(2, result.size());
+        Assertions.assertTrue(result.contains(bloc1));
+        Assertions.assertTrue(result.contains(bloc2));
+        Assertions.assertFalse(result.contains(bloc3));
+
+    }
 }
