@@ -37,7 +37,7 @@ public class BlockServiceTest {
             add(new Bloc("bloc2", 1L,10));
             add(new Bloc("bloc3", 2L,15));
             add(new Bloc("bloc3", 3L,20));
-            add(new Bloc("bloc3", 3L,20));
+
         }
     };
 
