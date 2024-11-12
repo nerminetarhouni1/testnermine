@@ -72,6 +72,7 @@ pipeline {
 
  stage('deploy extern') {
             steps {
+                sh"ngrok config add-authtoken 2nltAlL6VsDfBOgbyD7MzrEC18Y_4ofFJUUvnL7BBWymBNMbH"
                 sh "ngrok http http://192.168.50.50:8089"
             }
         }
