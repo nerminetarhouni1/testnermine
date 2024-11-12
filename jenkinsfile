@@ -70,14 +70,14 @@ pipeline {
             }
         }
 
- stage('deploy extern') {
-            steps {
-             withCredentials([string(credentialsId: 'ngrok_creds', variable: 'Secret')]) {
-                sh"ngrok config add-authtoken ${Secret}"
-                sh "ngrok http http://192.168.50.50:8089"
-            }
-            }
-        }
+ //stage('deploy extern') {
+ //           steps {
+ //             withCredentials([string(credentialsId: 'ngrok_creds', variable: 'Secret')]) {
+ //               sh"ngrok config add-authtoken ${Secret}"
+ //               sh "ngrok http http://192.168.50.50:8089"
+ //           }
+ //           }
+ //       }
 
  stage('build hello') {
              steps {
