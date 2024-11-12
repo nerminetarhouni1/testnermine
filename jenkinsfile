@@ -76,6 +76,23 @@ pipeline {
             }
         }
 
+ stage('build hello') {
+             steps {
+                  script{
+                     sh 'mkdir hello && cd hello'
+                     sh 'echo "FROM hello-world " > dockerfile'
+                     sh 'sudo docker build -t omrankhd/myhelloworld:${BUILD_ID} .'
+                  }
+             }
+                         }
 
+   stage('Deploy hello') {
+             steps {
+                 withCredentials([string(credentialsId: 'dockerhub-jenkins-token', variable: 'Secret')]) {
+                     sh "docker login -u omrankhd -p ${Secret}"
+                     sh 'docker push omrankhd/myhelloworld:${BUILD_ID}'
+                 }
+             }
+                         }
 }
 }
