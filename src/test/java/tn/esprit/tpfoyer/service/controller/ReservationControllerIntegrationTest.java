@@ -60,5 +60,4 @@ class ReservationControllerIntegrationTest {
                 .andExpect(jsonPath("$.idReservation").value("f1"));
     }
 
-    // Add more integration tests as needed...
 }

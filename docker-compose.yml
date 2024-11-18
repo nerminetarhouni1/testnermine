@@ -9,8 +9,6 @@ services:
       MYSQL_DATABASE: db
     ports:
       - "3306:3306"
-    #volumes:
-      #- tpgit_mysql-data:/var/lib/mysql # This line adds a persistent volume
     networks:
       - app-network
 
@@ -34,7 +32,3 @@ services:
 networks:
   app-network:
     driver: bridge
-
-#volumes:
-#  tpgit_mysql-data:   # Declare the named volume here
-#    driver: local     # You can explicitly define the driver (optional)

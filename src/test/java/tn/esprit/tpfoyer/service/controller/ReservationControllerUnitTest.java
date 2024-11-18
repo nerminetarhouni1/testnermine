@@ -38,7 +38,7 @@ class ReservationControllerUnitTest {
     void setUp() {
         MockitoAnnotations.openMocks(this);
         mockMvc = MockMvcBuilders.standaloneSetup(reservationRestController).build();
-        objectMapper = new ObjectMapper(); // Initialize ObjectMapper here
+        objectMapper = new ObjectMapper();
     }
 
     @Test

@@ -91,6 +91,19 @@
             <version>6.1.13</version>
             <!-- Removed <scope>test</scope> to ensure it's included at runtime -->
         </dependency>
+
+        <!-- Micrometer core for metrics collection -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-core</artifactId>
+        </dependency>
+
+        <!-- Prometheus Micrometer registry -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
+
     </dependencies>
 
     <!-- Distribution Management for Nexus deployment -->
